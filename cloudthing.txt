@@ -1,0 +1,7 @@
+# assuming vm tools and shared folder are set up
+mkdir /mnt/{somefolder}
+sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/{saidfolder} -o allow_other (credit to user on StackOverflow)
+
+#automount at startup
+/etc/fstab
+  .host:/ /mnt/{saidfolder} fuse.vmhgfs-fuse allow_other 0 0  (credit to user on StackOverflow)
