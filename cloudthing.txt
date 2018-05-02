@@ -1,3 +1,5 @@
+apt install smbclient
+
 # assuming vm tools and shared folder are set up
 mkdir /mnt/{somefolder}
 sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/{saidfolder} -o allow_other (credit to user on StackOverflow)
@@ -5,3 +7,16 @@ sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/{saidfolder} -o allow_other (credit 
 #automount at startup
 /etc/fstab
   .host:/ /mnt/{saidfolder} fuse.vmhgfs-fuse allow_other 0 0  (credit to user on StackOverflow)
+
+# see: https://askubuntu.com/questions/882625/nextcloud-snap-with-data-directory-on-external-harddrive
+sudo snap connect nextcloud:removable-media   // give snap access to removeable devices
+/var/snap/nextcloud/current/nextcloud/config/config.php
+  'datadirectory'
+  *ORIGINAL*: /var/snap/nextcloud/common/nextcloud/data
+
+sudo snap disable nextcloud
+
+# copy stuff over
+  sudo mv /var/snap/nextcloud/common/nextcloud/data /des/tina/tion
+  
+sudo snap enable nextcloud
