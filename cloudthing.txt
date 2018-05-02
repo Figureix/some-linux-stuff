@@ -9,6 +9,7 @@ sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/{saidfolder} -o allow_other (credit 
   .host:/ /mnt/{saidfolder} fuse.vmhgfs-fuse allow_other 0 0  (credit to user on StackOverflow)
 
 # see: https://askubuntu.com/questions/882625/nextcloud-snap-with-data-directory-on-external-harddrive
+# or: https://github.com/nextcloud/nextcloud-snap/issues/150#issuecomment-267641192
 sudo snap connect nextcloud:removable-media   // give snap access to removeable devices
 /var/snap/nextcloud/current/nextcloud/config/config.php
   'datadirectory'
