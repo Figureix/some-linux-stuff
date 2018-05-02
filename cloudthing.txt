@@ -21,3 +21,6 @@ sudo snap disable nextcloud
   sudo mv /var/snap/nextcloud/common/nextcloud/data /des/tina/tion
   
 sudo snap enable nextcloud
+
+# Setting https up... https://github.com/nextcloud/nextcloud-snap/wiki/Enabling-HTTPS-(SSL,-TLS)
+sudo nextcloud.enable-https self-signed
