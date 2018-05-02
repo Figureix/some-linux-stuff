@@ -1,6 +1,7 @@
-apt install smbclient
+apt install smbclient snapd
+sudo snap install nextcloud
 
-# assuming vm tools and shared folder are set up
+# assuming vm tools and shared folder are set up   ---   Shared folder == bad! use a partition/drive
 mkdir /mnt/{somefolder}
 sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/{saidfolder} -o allow_other (credit to user on StackOverflow)
 
