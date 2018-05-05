@@ -1,10 +1,18 @@
 apt install smbclient snapd
 sudo snap install nextcloud
 
-# Using a partition/drive
 mkdir /media/usr/{somefolder}
-# Use gui to set mountpoint for drive -- this will auto add to fstab for automount
+# Using a partition/drive --  Use gui to set mountpoint for drive -- this will auto add to fstab for automount
+change folder permissions to allow snap access
+
+# This here, is mimicing the snap->nextcloud->data directories permissions on the storage drive
+chmod 0770 /media/usr/{somefolder}/
+chown root:root {saidfolder}
+chown root:root {mounted drive}
 
 sudo snap connect nextcloud:removable-media   // give snap access to removeable devices
 
 # See: https://github.com/nextcloud/nextcloud-snap/wiki/Change-data-directory-to-use-another-disk-partition
+
+
+# ta-daa!  --  note: fstab may need to be updated to mount drive to root user group.... (see line 11)
