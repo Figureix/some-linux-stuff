@@ -1,27 +1,8 @@
 apt install smbclient snapd
 sudo snap install nextcloud
 
-# assuming vm tools and shared folder are set up   ---   Shared folder == bad! use a partition/drive
-mkdir /mnt/{somefolder}
-sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/{saidfolder} -o allow_other (credit to user on StackOverflow)
+# Using a partition/drive
+mkdir /media/usr/{somefolder}
+# Use gui to set mountpoint for drive -- this will auto add to fstab for automount
 
-#automount at startup
-/etc/fstab
-  .host:/ /mnt/{saidfolder} fuse.vmhgfs-fuse allow_other 0 0  (credit to user on StackOverflow)
-
-# see: https://askubuntu.com/questions/882625/nextcloud-snap-with-data-directory-on-external-harddrive
-# or: https://github.com/nextcloud/nextcloud-snap/issues/150#issuecomment-267641192
-sudo snap connect nextcloud:removable-media   // give snap access to removeable devices
-/var/snap/nextcloud/current/nextcloud/config/config.php
-  'datadirectory'
-  *ORIGINAL*: /var/snap/nextcloud/common/nextcloud/data
-
-sudo snap disable nextcloud
-
-# copy stuff over
-  sudo mv /var/snap/nextcloud/common/nextcloud/data /des/tina/tion
-  
-sudo snap enable nextcloud
-
-# Setting https up... https://github.com/nextcloud/nextcloud-snap/wiki/Enabling-HTTPS-(SSL,-TLS)
-sudo nextcloud.enable-https self-signed
+# See: https://github.com/nextcloud/nextcloud-snap/wiki/Change-data-directory-to-use-another-disk-partition
