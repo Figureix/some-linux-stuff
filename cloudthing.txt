@@ -5,4 +5,6 @@ sudo snap install nextcloud
 mkdir /media/usr/{somefolder}
 # Use gui to set mountpoint for drive -- this will auto add to fstab for automount
 
+sudo snap connect nextcloud:removable-media   // give snap access to removeable devices
+
 # See: https://github.com/nextcloud/nextcloud-snap/wiki/Change-data-directory-to-use-another-disk-partition
