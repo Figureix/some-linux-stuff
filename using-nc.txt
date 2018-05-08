@@ -1,0 +1,7 @@
+# quick lookup place for using nc (net cat)
+# on sender
+cat {filetosend} | nc -l -p {port} -q {seconds}
+# on receiver
+nc {source ip} {source port} > {outputfile}
+
+# or there is the man page method
