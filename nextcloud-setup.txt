@@ -1,12 +1,18 @@
 apt install smbclient snapd
 sudo snap install nextcloud
 
-mkdir /media/usr/{somefolder}
+mkdir /media/{user}/{somefolder}
 # Using a partition/drive --  Use gui to set mountpoint for drive -- this will auto add to fstab for automount
 change folder permissions to allow snap access
 
+--------- If not using gui to set mount point ---------
+vi /etc/fstab
+# add
+UUID={use blkid to fetch uuid of disk} /media/{user}/{somefolder} auto nosuid,nodev,nofail,x-gvfs-show 0 0
+---------           ---------------           ---------
+
 # This here, is mimicing the snap->nextcloud->data directories permissions on the storage drive
-chmod 0770 /media/usr/{somefolder}/
+chmod 0770 /media/{user}/{somefolder}/
 chown root:root {saidfolder}
 chown root:root {mounted drive}
 
