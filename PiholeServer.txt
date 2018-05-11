@@ -1,29 +1,27 @@
-sudo apt install net-tools dnsmasq curl
+# Updated this using Ubuntu Server
+
+sudo apt install dnsmasq curl
 sudo vi /etc/systemd/resolved.conf
 	DNS=127.0.1.1
 	FallbackDNS=127.0.1.1
 	DNSStubListener=no
-sudo vi /etc/NetworkManager/NetworkManager.conf
-	[main]
-		dns=dnsmasq
 
 sudo su
 curl -sSL https://install.pi-hole.net | bash
 
 # pihole should be working as desired.
 
-
-
-
 # after successful setup -- here are my 'domain hosts'
-vi sudo /etc/hosts
-	192.168.1.4	mycloud
-	192.168.1.1	router1
-	192.168.1.2	router2
-
 visudo /etc/dnsmasq.conf
 	address=/my.cloud.net/192.168.1.4
 	address=/my.router1.net/192.168.1.1
 	address=/my.router2.net/192.168.1.2
 
 pihole restartdns
+
+# and flush dns settings if it doesn't work
+
+
+
+# nice to know commands
+sudo netstat -alunp
