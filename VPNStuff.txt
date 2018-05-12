@@ -1,6 +1,20 @@
 # See this link: https://www.hugeserver.com/kb/how-to-config-openvpn-ubuntu-debian/
 # or this: https://github.com/Angristan/OpenVPN-install
 
+# add to server.conf file
+log-append {somelogfilename}.log
+
 # And set appropriate ports on router to forward to computer
 
 # Security hardening: Fail2Ban -- prevent brute force guesses against server
+sudo apt install fail2ban
+cd /etc/fail2ban
+sudo cp jail.conf jail.local
+# change max retry settings
+
+# Then this: https://www.fail2ban.org/wiki/index.php/HOWTO_fail2ban_with_OpenVPN  (over zealous security measure? .... yes....)
+# update/fix the 'configuration fragment' to include location of {somelogfilename}.log
+# Added two lines to filter.d/{myfilterfile}
+fileregex = ^ <HOST>:\d+ Fatal TLS error
+            ^ <HOST>:\d+ TLS Error: cannot locate HMAC
+# To be experimented with...
