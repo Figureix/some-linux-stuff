@@ -1,2 +1,4 @@
 # See this link: https://www.hugeserver.com/kb/how-to-config-openvpn-ubuntu-debian/
 # or this: https://github.com/Angristan/OpenVPN-install
+
+# Security hardening: Fail2Ban -- prevent brute force guesses against server
