@@ -18,3 +18,9 @@ sudo cp jail.conf jail.local
 fileregex = ^ <HOST>:\d+ Fatal TLS error
             ^ <HOST>:\d+ TLS Error: cannot locate HMAC
 # To be experimented with...
+
+# Check current bans
+iptables -L -n | less
+
+# Clear a ban
+fail2ban-client set {jail} unbanip {ipaddress}
