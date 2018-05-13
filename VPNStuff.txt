@@ -19,6 +19,8 @@ fileregex = ^ <HOST>:\d+ Fatal TLS error
             ^ <HOST>:\d+ TLS Error: cannot locate HMAC
 # To be experimented with...
 
+# Watch fail2ban log: /var/log/fail2ban.log
+
 # Check current bans
 iptables -L -n | less
 
