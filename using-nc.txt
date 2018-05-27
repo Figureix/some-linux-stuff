@@ -1,7 +1,12 @@
 # quick lookup place for using nc (net cat)
 # on sender
 cat {filetosend} | nc -l -p {port} -q {seconds}
+# or
+cat {filetosend} | netcat {destinationip} {port}
+
 # on receiver
 nc {source ip} {source port} > {outputfile}
+# or (continued)
+nc -l -p {port} -q {timeout} > {destinationfile} < /dev/null
 
 # or there is the man page method
