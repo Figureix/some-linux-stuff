@@ -1,3 +1,4 @@
+                                              ## USING NETCAT TO SEND FILES ##
 # quick lookup place for using nc (net cat)
 # on sender
 cat {filetosend} | nc -l -p {port} -q {seconds}
@@ -17,3 +18,7 @@ On the receiving end do:
 
 And on the sending end do:
 # tar cf - * | nct otherhost {port}
+
+
+                                              ## CUSTOMIZING LANDSCAPE_SYSINFO ##
+# See the man page for further exploration
