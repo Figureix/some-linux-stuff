@@ -18,6 +18,9 @@ chown root:root {mounted drive}
 
 sudo snap connect nextcloud:removable-media   // give snap access to removeable devices
 
+# Change Port access as well
+sudo snap set nextcloud ports.http=##
+
 # See: https://github.com/nextcloud/nextcloud-snap/wiki/Change-data-directory-to-use-another-disk-partition
 
 
