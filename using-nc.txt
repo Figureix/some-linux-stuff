@@ -10,3 +10,10 @@ nc {source ip} {source port} > {outputfile}
 nc -l -p {port} -q {timeout} > {destinationfile} < /dev/null
 
 # or there is the man page method
+
+# Sending a Directory of many files
+On the receiving end do:
+# nc -l -p {port} | tar x
+
+And on the sending end do:
+# tar cf - * | nct otherhost {port}
