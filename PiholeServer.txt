@@ -1,11 +1,3 @@
-# Updated this using Ubuntu Server
-
-sudo apt install dnsmasq curl
-sudo vi /etc/systemd/resolved.conf
-	DNS=127.0.1.1
-	FallbackDNS=127.0.1.1
-	DNSStubListener=no
-
 sudo su
 curl -sSL https://install.pi-hole.net | bash
 # then jump onto the FTLDNS Branch (should becoem mainstream soon)    https://pi-hole.net/2018/03/24/help-us-beta-test-ftldns/
@@ -23,7 +15,6 @@ sudo vi /etc/dnsmasq.conf
 pihole restartdns
 
 # and flush dns settings if it doesn't work
-
 
 
 # nice to know commands
