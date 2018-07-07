@@ -11,6 +11,7 @@ log-append {somelogfilename}.log
 
 # And set appropriate ports on router to forward to computer
 
+# Unecessary to do, since we are using certificates/etc.... (but useful for ssh protection)
 # Security hardening: Fail2Ban -- prevent brute force guesses against server
 sudo apt install fail2ban
 cd /etc/fail2ban
