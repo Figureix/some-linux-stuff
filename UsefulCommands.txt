@@ -24,16 +24,11 @@ And on the sending end do:
 # See the man page for further exploration
 
 
-# KVM Stuff -- learning/figuring it out
+# KVM Stuff -- learning/figuring it out -- this is a work in progress (currently on pause)
 sudo apt install virt-manager qemu-system qemu-kvm libvirt-bin libvirtd ubuntu-vm-builder bridge-utils
-sudo libvirtd -d
-service libvirtd status
-service libvirtd stop
 sudo adduser `id -un` libvirtd
-virsh -c qemu:///system list
-libvirtd -d
+### reboot ###
 sudo libvirtd -d
-virsh -c qemu:///system list
-service libvirtd stop
 sudo modprobe -r kvm_intel
 sudo modprobe kvm_intel nested=1
+then use virt-manager gui for the rest
