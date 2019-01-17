@@ -18,3 +18,10 @@ else
 fi
 
 echo $? will tell me the return status of ^^^ that, 0 on success, 1 on error.
+OR
+if [ $(mountpoint -q "location of mount" ]; then
+  echo "found"
+else
+  echo "nope"
+fi
+  
