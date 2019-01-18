@@ -11,17 +11,8 @@ I will use either:
 mountpoint
 findmnt  <-- see https://serverfault.com/questions/50585/whats-the-best-way-to-check-if-a-volume-is-mounted-in-a-bash-script
 
-if [ $(findmnt -rno SOURCE,TARGET "/" >/dev/null;) ]; then
-  echo "found"
+if findmnt -rno TARGET "mount directory" >/dev/null; then
+  echo "foundmount"
 else
-  echo "nope"
+  echo "notmounted"
 fi
-
-echo $? will tell me the return status of ^^^ that, 0 on success, 1 on error.
-OR
-if [ $(mountpoint -q "location of mount" ]; then
-  echo "found"
-else
-  echo "nope"
-fi
-  
