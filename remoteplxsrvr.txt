@@ -16,3 +16,9 @@ if findmnt -rno TARGET "mount directory" >/dev/null; then
 else
   echo "notmounted"
 fi
+
+
+sudo apt install ssmtp
+// lets get email stuff from terminal figured out.
+// then set up a cron job.
+// ready!
